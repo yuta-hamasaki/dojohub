@@ -11,6 +11,7 @@ import { Label } from "@/components/ui/label"
 import { getSupabaseBrowserClient } from "@/lib/supabase/client"
 import { localePath } from "@/lib/i18n/navigation"
 import type { Locale } from "@/lib/i18n/config"
+import { t } from "@/lib/i18n/translations"
 
 export default function SetupRolePage() {
   const [role, setRole] = useState<"client" | "trainer">("client")
@@ -59,8 +60,8 @@ export default function SetupRolePage() {
     <div className="min-h-screen flex items-center justify-center bg-background p-4">
       <Card className="w-full max-w-md">
         <CardHeader className="space-y-1">
-          <CardTitle className="text-2xl font-bold">Choose your role</CardTitle>
-          <CardDescription>How do you want to use the platform?</CardDescription>
+          <CardTitle className="text-2xl font-bold">{t(locale,"auth.select_role")}</CardTitle>
+          <CardDescription>{t(locale,"auth.role_description")}</CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -68,25 +69,25 @@ export default function SetupRolePage() {
               <div className="flex items-start space-x-3 rounded-lg border p-4 cursor-pointer hover:bg-accent transition-colors">
                 <RadioGroupItem value="client" id="client" className="mt-1" />
                 <Label htmlFor="client" className="flex-1 cursor-pointer">
-                  <div className="font-semibold">I'm looking for trainers</div>
+                  <div className="font-semibold">{t(locale,"auth.role_client_option")}</div>
                   <div className="text-sm text-muted-foreground">
-                    Browse trainers, subscribe to content, and improve your skills
+                    {t(locale,"auth.role_client_option_desc")}
                   </div>
                 </Label>
               </div>
               <div className="flex items-start space-x-3 rounded-lg border p-4 cursor-pointer hover:bg-accent transition-colors">
                 <RadioGroupItem value="trainer" id="trainer" className="mt-1" />
                 <Label htmlFor="trainer" className="flex-1 cursor-pointer">
-                  <div className="font-semibold">I'm a trainer</div>
+                  <div className="font-semibold">{t(locale,"auth.role_trainer_option")}</div>
                   <div className="text-sm text-muted-foreground">
-                    Share your expertise, build your audience, and earn revenue
+                    {t(locale,"auth.role_trainer_option_desc")}
                   </div>
                 </Label>
               </div>
             </RadioGroup>
             {error && <p className="text-sm text-destructive">{error}</p>}
             <Button type="submit" className="w-full" disabled={loading}>
-              {loading ? "Setting up..." : "Continue"}
+              {loading ? t(locale,"auth.role_loading") : t(locale,"auth.role_continue")}
             </Button>
           </form>
         </CardContent>

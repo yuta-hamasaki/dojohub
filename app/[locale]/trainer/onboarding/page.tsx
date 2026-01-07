@@ -135,7 +135,7 @@ export default function TrainerOnboardingPage() {
             <AlertCircle className="h-5 w-5 text-muted-foreground flex-shrink-0 mt-0.5" />
             <div className="text-sm text-muted-foreground">
               <p className="font-medium text-foreground mb-1">Payment Processing</p>
-              <p>Platform fee: 10% per transaction. Payments are automatically transferred to your account.</p>
+              <p>Platform fee: 7% per transaction. Payments are automatically transferred to your account.</p>
             </div>
           </div>
 

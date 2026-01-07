@@ -5,6 +5,7 @@ import { useRouter, useParams } from "next/navigation"
 import { getSupabaseBrowserClient } from "@/lib/supabase/client"
 import { localePath } from "@/lib/i18n/navigation"
 import type { Locale } from "@/lib/i18n/config"
+import { t } from "@/lib/i18n/translations"
 
 export default function AuthCallbackPage() {
   const router = useRouter()
@@ -72,7 +73,7 @@ console.log("Debug - UserError:", userError)
     <div className="min-h-screen flex items-center justify-center">
       <div className="text-center space-y-4">
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto" />
-        <p className="text-muted-foreground">Completing sign in...</p>
+        <p className="text-muted-foreground">{t(locale, "completing_signin")}</p>
       </div>
     </div>
   )

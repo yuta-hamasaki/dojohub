@@ -105,7 +105,7 @@ export default function TrainerDashboard() {
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">${analytics.revenue.net.toFixed(2)}</div>
-            <p className="text-xs text-muted-foreground">After platform fee (10%)</p>
+            <p className="text-xs text-muted-foreground">After platform fee (7%)</p>
           </CardContent>
         </Card>
 

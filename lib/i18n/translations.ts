@@ -19,7 +19,8 @@ export const translations = {
     "auth.login_title": "Welcome Back",
     "auth.login_subtitle": "Sign in to access your training platform",
     "auth.signup_title": "Join the Platform",
-    "auth.signup_subtitle": "Start your journey as a trainer or client",
+    "auth.signup_subtitle": "Your life starts to change when you sign up",
+    "auth.logging_in": "Logging in...",
     "auth.role_selection_title": "Choose Your Role",
     "auth.role_selection_subtitle": "How would you like to use the platform?",
     "auth.role_trainer": "Trainer",
@@ -27,6 +28,33 @@ export const translations = {
     "auth.role_client": "Client",
     "auth.role_client_desc": "Learn from top trainers and improve your skills",
     "auth.continue": "Continue",
+    "auth.new_user": "Don't have an account?",
+    "auth.existing_user": "Already have an account?",
+    "auth.signup_link": "Sign up here",
+    "auth.login_link": "Log in here",
+
+    // Auth Role Selection
+    "auth.select_role": "Choose your role",
+    "auth.role_description": "How do you want to use the platform?",
+    "auth.role_trainer_option": "I'm a trainer",
+    "auth.role_trainer_option_desc": "Share your expertise and build your coaching business",
+    "auth.role_client_option": "I'm looking for trainers", 
+    "auth.role_client_option_desc": "Browse trainers, subscribe to content, and improve your skills",
+    "auth.role_loading": "Setting up...",
+    "auth.role_continue": "Continue",
+
+    //checkout page
+    "checkout.title": "Complete Your Subscription",
+    "checkout.description": "You're about to subscribe to premium training content",
+    "checkout.stripe_description": "You'll be redirected to Stripe to complete payment",
+    "checkout.secure_payment": "Secure payment processing",
+    "checkout.cancel_anytime": "Cancel anytime",
+    "checkout.instant_access": "Instant access to content",
+
+    "checkout.processing": "Processing...",
+    "checkout.proceed_payment": "Proceed to Payment",
+    "checkout.terms_agreement": "By continuing, you agree to our terms of service and privacy policy",
+
 
     // Home
     "home.hero_title": "Train with the Best Combat Sports Coaches",
@@ -158,7 +186,7 @@ export const translations = {
     "admin.title": "Admin Dashboard",
     "admin.platform_overview": "Platform Overview",
     "admin.total_revenue": "Total Platform Revenue",
-    "admin.platform_fees": "Platform Fees (10%)",
+    "admin.platform_fees": "Platform Fees (7%)",
     "admin.total_trainers": "Total Trainers",
     "admin.total_clients": "Total Clients",
     "admin.active_subscriptions": "Active Subscriptions",
@@ -191,6 +219,9 @@ export const translations = {
     "common.delete": "Delete",
     "common.edit": "Edit",
     "common.view": "View",
+
+    //callback page
+    "completing_signin": "Completing sign in...",
   },
   ja: {
     // Navigation
@@ -207,17 +238,47 @@ export const translations = {
 
     // Auth
     "auth.continue_with_google": "Googleで続ける",
-    "auth.login_title": "おかえりなさい",
-    "auth.login_subtitle": "トレーニングプラットフォームにサインイン",
-    "auth.signup_title": "プラットフォームに参加",
-    "auth.signup_subtitle": "トレーナーまたはクライアントとして始めましょう",
+    "auth.login_title": "ログイン",
+    "auth.login_subtitle": "アカウントをお持ちの方はこちらからログイン",
+    "auth.signup_title": "新規登録",
+    "auth.signup_subtitle": "会員登録して、人生を変える一歩を踏み出そう",
     "auth.role_selection_title": "役割を選択",
+    "auth.logging_in": "ログイン中...",
     "auth.role_selection_subtitle": "プラットフォームの使い方を選んでください",
     "auth.role_trainer": "トレーナー",
     "auth.role_trainer_desc": "専門知識を共有してコーチングビジネスを構築",
     "auth.role_client": "クライアント",
     "auth.role_client_desc": "トップトレーナーから学び、スキルを向上",
     "auth.continue": "続ける",
+    "auth.new_user": "アカウントをお持ちでないですか？",
+    "auth.existing_user": "アカウントをお持ちですか？",
+    "auth.signup_link": "新規登録はこちら",
+    "auth.login_link": "ログインはこちら",
+
+      // Auth Role Selection
+      "auth.select_role": "役割を選択してください",
+      "auth.role_description": "このプラットフォームをどのように利用しますか？",
+      "auth.role_trainer_option": "トレーナーとして登録する",
+      "auth.role_trainer_option_desc": "専門知識を共有し、コーチングビジネスを構築できます",
+      "auth.role_client_option": "トレーナーを探している方",
+      "auth.role_client_option_desc": "トレーナーを探し、コンテンツを購読してスキルを向上させましょう",
+      "auth.role_loading": "設定中...",
+      "auth.role_continue": "続ける",
+
+
+
+      // checkout page
+      "checkout.title": "サブスクリプションの完了",
+      "checkout.description": "プレミアムトレーニングコンテンツへの登録手続きを行います",
+      "checkout.stripe_description": "お支払い手続きのため、Stripeの画面へ移動します",
+      "checkout.secure_payment": "安全な決済処理",
+      "checkout.cancel_anytime": "いつでもキャンセル可能",
+      "checkout.instant_access": "登録後すぐにコンテンツへアクセスできます",
+
+      "checkout.processing": "処理中...",
+      "checkout.proceed_payment": "支払いに進む",
+      "checkout.terms_agreement": "続行することで、利用規約およびプライバシーポリシーに同意したものとみなされます",
+
 
     // Home
     "home.hero_title": "最高の格闘技コーチとトレーニング",
@@ -382,6 +443,9 @@ export const translations = {
     "common.delete": "削除",
     "common.edit": "編集",
     "common.view": "表示",
+
+  //callback page
+    "completing_signin": "ログイン処理中...",
   },
 } as const
 

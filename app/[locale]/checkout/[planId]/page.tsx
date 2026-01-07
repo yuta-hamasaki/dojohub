@@ -5,6 +5,8 @@ import { useParams } from "next/navigation"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Check, Loader2 } from "lucide-react"
+import type { Locale } from "@/lib/i18n/config"
+import { t } from "@/lib/i18n/translations"
 
 interface Plan {
   id: string
@@ -25,6 +27,7 @@ export default function CheckoutPage() {
   const [processing, setProcessing] = useState(false)
   const params = useParams()
   const planId = params.planId as string
+  const locale = (params.locale as Locale) || "en"
 
   useEffect(() => {
     loadPlan()
@@ -76,24 +79,24 @@ export default function CheckoutPage() {
     <div className="min-h-screen flex items-center justify-center bg-background p-4">
       <Card className="max-w-lg w-full">
         <CardHeader>
-          <CardTitle className="text-2xl">Complete Your Subscription</CardTitle>
-          <CardDescription>You're about to subscribe to premium training content</CardDescription>
+          <CardTitle className="text-2xl">{t(locale, "checkout.title")}</CardTitle>
+          <CardDescription>{t(locale, "checkout.description")}</CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
           <div className="bg-secondary p-6 rounded-lg">
-            <p className="text-sm text-muted-foreground mb-2">You'll be redirected to Stripe to complete payment</p>
+            <p className="text-sm text-muted-foreground mb-2">{t(locale, "checkout.stripe_description")}</p>
             <div className="space-y-2 mt-4">
               <div className="flex items-center gap-2 text-sm">
                 <Check className="h-4 w-4 text-primary" />
-                <span>Secure payment processing</span>
+                <span>{t(locale, "checkout.secure_payment")}</span>
               </div>
               <div className="flex items-center gap-2 text-sm">
                 <Check className="h-4 w-4 text-primary" />
-                <span>Cancel anytime</span>
+                <span>{t(locale, "checkout.cancel_anytime")}</span>
               </div>
               <div className="flex items-center gap-2 text-sm">
                 <Check className="h-4 w-4 text-primary" />
-                <span>Instant access to content</span>
+                <span>{t(locale, "checkout.instant_access")}</span>
               </div>
             </div>
           </div>
@@ -102,15 +105,15 @@ export default function CheckoutPage() {
             {processing ? (
               <>
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                Processing...
+                {t(locale, "checkout.processing")}
               </>
             ) : (
-              "Proceed to Payment"
+              t(locale, "checkout.proceed_payment")
             )}
           </Button>
 
           <p className="text-xs text-center text-muted-foreground">
-            By continuing, you agree to our terms of service and privacy policy
+            {t(locale, "checkout.terms_agreement")}
           </p>
         </CardContent>
       </Card>

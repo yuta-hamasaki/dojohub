@@ -22,6 +22,9 @@ export async function createConnectAccount(email: string, trainerId: string) {
       settings: {
         payouts: {
           schedule: {
+            interval: 'weekly',
+           // 毎週何曜日に振り込むか指定（例: 月曜日）
+            weekly_anchor: 'monday',
             // Delay payouts to allow for dispute resolution
             delay_days: 7,
           },
@@ -99,7 +102,7 @@ export async function createSubscription(
   customerId: string,
   priceId: string,
   connectedAccountId: string,
-  platformFeePercent = 10,
+  platformFeePercent = 7,
 ) {
   try {
     const subscription = await stripe.subscriptions.create({

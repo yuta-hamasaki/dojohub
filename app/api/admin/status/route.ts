@@ -27,9 +27,9 @@ export async function GET() {
       supabase.from("subscriptions").select("amount").eq("status", "active"),
     ])
 
-    // Calculate total revenue and platform fees
+    // Calculate total revenue and platform s
     const totalRevenue = revenueResult.data?.reduce((sum, sub) => sum + (sub.amount || 0), 0) || 0
-    const platformFees = totalRevenue * 0.1
+    const platformFees = totalRevenue * 0.07 // Assuming 7% platform fee
 
     // Get monthly revenue data for chart (mock data for now)
     const monthlyRevenue = [

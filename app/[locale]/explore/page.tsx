@@ -19,7 +19,7 @@ interface Trainer {
   id: string
   bio: string
   specialties: string[]
-  subscriber_count: number
+  total_subscribers: number
   user: {
     full_name: string
     avatar_url: string
@@ -118,7 +118,7 @@ export default function ExplorePage() {
                         <CardTitle className="text-xl truncate">{trainer.user.full_name}</CardTitle>
                         <div className="flex items-center gap-2 text-sm text-muted-foreground mt-1">
                           <Users className="h-4 w-4" />
-                          <span>{trainer.subscriber_count} subscribers</span>
+                          <span>{trainer.total_subscribers} subscribers</span>
                         </div>
                       </div>
                     </div>

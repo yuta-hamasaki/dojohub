@@ -59,6 +59,22 @@ export async function POST(request: Request) {
       customerId = customer.id
     }
 
+
+    // Create checkout session の直前に追加
+console.log("Checking Price ID:", plan.stripe_price_id);
+console.log("Stripe Mode:", process.env.STRIPE_SECRET_KEY?.startsWith('sk_test') ? 'Test' : 'Live');
+
+// 追加：今使っているAPIキーがどのアカウントを指しているか確認
+const accountDetails = await stripe.accounts.retrieve();
+console.log("Current Stripe Account ID:", accountDetails.id);
+console.log("Looking for Price ID:", plan.stripe_price_id);
+
+try {
+  const priceCheck = await stripe.prices.retrieve(plan.stripe_price_id!);
+  console.log("Price found! Account has access to this price.");
+} catch (e) {
+  console.error("Price NOT found on this account. This confirms the ID/Account mismatch.");
+}
     // Create checkout session
     const session = await stripe.checkout.sessions.create({
       customer: customerId,

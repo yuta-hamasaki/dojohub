@@ -3,9 +3,14 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Play, Users, Trophy, DollarSign } from "lucide-react"
 import { redirect } from "next/navigation"
+import { t } from "@/lib/i18n/translations"
+import type { Locale } from "@/lib/i18n/config" 
 
-export default function RootPage() {
+
+export default async function RootPage() {
   redirect("/ja")
+  const params = { locale: "ja" as Locale } // Default locale
+  const locale = (params.locale as Locale) || "en"
 
   function HomePage() {
     return (
@@ -21,17 +26,17 @@ export default function RootPage() {
           />
           <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
             <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 text-balance">
-              Train With The Best Combat Sports Athletes
+              {t(locale, "home.hero_title")}
             </h1>
             <p className="text-xl md:text-2xl text-white/90 mb-8 text-pretty">
-              Get exclusive access to world-class training from elite MMA fighters, boxers, and martial artists
+              {t(locale, "home.hero_subtitle")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="text-lg px-8" asChild>
-                <Link href="/explore">Explore Trainers</Link>
+                <Link href="/explore">{t(locale, "home.cta_explore")}</Link>
               </Button>
               <Button size="lg" variant="outline" className="text-lg px-8 bg-white/10 backdrop-blur" asChild>
-                <Link href="/auth/signup">Become a Trainer</Link>
+                <Link href="/auth/signup">{t(locale, "home.cta_become_trainer")}</Link>
               </Button>
             </div>
           </div>

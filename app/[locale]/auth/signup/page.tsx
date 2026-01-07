@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { getSupabaseBrowserClient } from "@/lib/supabase/client"
 import { localePath } from "@/lib/i18n/navigation"
+import { t } from "@/lib/i18n/translations"
 import type { Locale } from "@/lib/i18n/config"
 
 export default function SignupPage() {
@@ -39,8 +40,8 @@ export default function SignupPage() {
     <div className="min-h-screen flex items-center justify-center bg-background p-4">
       <Card className="w-full max-w-md">
         <CardHeader className="space-y-1">
-          <CardTitle className="text-2xl font-bold">Create an account</CardTitle>
-          <CardDescription>Join the combat sports training platform</CardDescription>
+          <CardTitle className="text-2xl font-bold text-center">{t(locale, "auth.signup_title")}</CardTitle>
+          <CardDescription className="text-center">{t(locale, "auth.signup_subtitle")}</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
@@ -64,16 +65,16 @@ export default function SignupPage() {
                   fill="#EA4335"
                 />
               </svg>
-              {loading ? "Creating account..." : "Continue with Google"}
+              {loading ? t(locale, "auth.logging_in") : t(locale, "auth.continue_with_google")}
             </Button>
             <p className="text-xs text-muted-foreground text-center">
               You'll be able to choose your role (trainer or client) after signing up
             </p>
           </div>
           <div className="mt-4 text-center text-sm">
-            <span className="text-muted-foreground">Already have an account? </span>
+            <span className="text-muted-foreground">{t(locale, "auth.existing_user")} </span>
             <Link href={localePath("/auth/login", locale)} className="text-primary hover:underline">
-              Sign in
+              {t(locale, "auth.login_link")}
             </Link>
           </div>
         </CardContent>

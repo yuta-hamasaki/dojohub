@@ -39,7 +39,7 @@ export async function GET(request: Request) {
       return total + monthlyPrice
     }, 0)
 
-    const platformFee = monthlyRevenue * 0.7 // 7% platform fee
+    const platformFee = monthlyRevenue * 0.07
     const netRevenue = monthlyRevenue - platformFee
 
     // Get content stats

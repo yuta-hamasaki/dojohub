@@ -33,10 +33,10 @@ export default async function proxy(request: NextRequest) {
   const pathname = request.nextUrl.pathname
 
   // Protect trainer routes (locale-aware)
-  if (pathname.match(/^\/(en|ja)\/trainer/) && !user) {
-    const locale = pathname.split("/")[1]
-    return NextResponse.redirect(new URL(`/${locale}/auth/login`, request.url))
-  }
+  // if (pathname.match(/^\/(en|ja)\/trainer/) && !user) {
+  //   const locale = pathname.split("/")[1]
+  //   return NextResponse.redirect(new URL(`/${locale}/auth/login`, request.url))
+  // }
 
   // Protect client dashboard (locale-aware)
   if (pathname.match(/^\/(en|ja)\/dashboard/) && !user) {

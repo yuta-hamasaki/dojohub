@@ -15,7 +15,7 @@ interface TrainerProfile {
   id: string
   bio: string
   specialties: string[]
-  subscriber_count: number
+  total_subscribers: number
   user: {
     full_name: string
     avatar_url: string
@@ -54,6 +54,8 @@ export default function TrainerProfilePage() {
       setLoading(false)
     }
   }
+  
+  console.log("Trainer data:", trainer)
 
   const handleSubscribe = (planId: string) => {
     router.push(localePath(`/checkout/${planId}`, locale))
@@ -89,7 +91,7 @@ export default function TrainerProfilePage() {
               <h1 className="text-4xl font-bold mb-2">{trainer.user.full_name}</h1>
               <div className="flex items-center gap-2 text-muted-foreground mb-4">
                 <Users className="h-5 w-5" />
-                <span>{trainer.subscriber_count} subscribers</span>
+                <span>{trainer.total_subscribers} subscribers</span>
               </div>
               <div className="flex flex-wrap gap-2">
                 {trainer.specialties?.map((specialty) => (

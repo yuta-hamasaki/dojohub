@@ -1,8 +1,13 @@
 import { NextResponse } from "next/server"
 import { getSupabaseServerClient } from "@/lib/supabase/server"
 import { createConnectAccount, createAccountLink } from "@/lib/stripe/server"
+import { Locale } from "@/lib/i18n/config"
 
 export async function POST(request: Request) {
+  const locale = (request.headers.get("x-locale") || "en") as Locale
+  const Locale = locale === "en" || locale === "ja" ? locale : "en"
+
+  
   try {
     const supabase = await getSupabaseServerClient()
 
@@ -48,8 +53,8 @@ export async function POST(request: Request) {
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"
     const accountLink = await createAccountLink(
       stripeAccountId,
-      `${baseUrl}/trainer/onboarding`,
-      `${baseUrl}/trainer/onboarding/complete`,
+      `${baseUrl}/${Locale}/trainer/onboarding`,
+      `${baseUrl}//trainer/onboarding/complete`,
     )
 
     return NextResponse.json({ url: accountLink.url })

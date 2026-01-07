@@ -8,6 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { getSupabaseBrowserClient } from "@/lib/supabase/client"
 import { localePath } from "@/lib/i18n/navigation"
 import type { Locale } from "@/lib/i18n/config"
+import { t } from '@/lib/i18n/translations'
 
 export default function LoginPage() {
   const [loading, setLoading] = useState(false)
@@ -40,8 +41,8 @@ export default function LoginPage() {
     <div className="min-h-screen flex items-center justify-center bg-background p-4">
       <Card className="w-full max-w-md">
         <CardHeader className="space-y-1">
-          <CardTitle className="text-2xl font-bold">Welcome back</CardTitle>
-          <CardDescription>Sign in to your account to continue</CardDescription>
+          <CardTitle className="text-2xl font-bold text-center">{t(locale, "auth.login_title")}</CardTitle>
+          <CardDescription className="text-center">{t(locale, "auth.login_subtitle")}</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
@@ -65,13 +66,13 @@ export default function LoginPage() {
                   fill="#EA4335"
                 />
               </svg>
-              {loading ? "Signing in..." : "Continue with Google"}
+              {loading ? t(locale, "auth.logging_in") : t(locale, "auth.continue_with_google")}
             </Button>
           </div>
           <div className="mt-4 text-center text-sm">
-            <span className="text-muted-foreground">Don't have an account? </span>
+            <span className="text-muted-foreground">{t(locale, "auth.new_user")} </span>
             <Link href={localePath("/auth/signup", locale)} className="text-primary hover:underline">
-              Sign up
+              {t(locale, "auth.signup_link")}
             </Link>
           </div>
         </CardContent>
