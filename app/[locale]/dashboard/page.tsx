@@ -11,6 +11,7 @@ import { Users, Calendar } from "lucide-react"
 import { getSupabaseBrowserClient } from "@/lib/supabase/client"
 import { localePath } from "@/lib/i18n/navigation"
 import type { Locale } from "@/lib/i18n/config"
+import { t } from "@/lib/i18n/translations"
 
 interface Subscription {
   id: string
@@ -87,11 +88,11 @@ export default function ClientDashboard() {
     <div className="container mx-auto py-8 px-4 max-w-7xl">
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h1 className="text-3xl font-bold">My Dashboard</h1>
-          <p className="text-muted-foreground mt-1">Manage your subscriptions and training</p>
+          <h1 className="text-3xl font-bold">{t(locale, "dashboard.title")}</h1>
+          <p className="text-muted-foreground mt-1">{t(locale, "dashboard.subtitle")}</p>
         </div>
         <Button asChild>
-          <Link href={localePath("/explore", locale)}>Explore Trainers</Link>
+          <Link href={localePath("/explore", locale)}>{t(locale, "dashboard.explore_trainers")}</Link>
         </Button>
       </div>
 
@@ -99,10 +100,10 @@ export default function ClientDashboard() {
         <Card>
           <CardContent className="py-12 text-center">
             <Users className="h-12 w-12 mx-auto mb-4 text-muted-foreground" />
-            <h3 className="text-lg font-semibold mb-2">No Active Subscriptions</h3>
-            <p className="text-muted-foreground mb-4">Start your training journey by subscribing to a trainer</p>
+            <h3 className="text-lg font-semibold mb-2">{t(locale, "dashboard.no_subscriptions")}</h3>
+            <p className="text-muted-foreground mb-4">{t(locale, "dashboard.subscription_sub")}</p>
             <Button asChild>
-              <Link href={localePath("/explore", locale)}>Browse Trainers</Link>
+              <Link href={localePath("/explore", locale)}>{t(locale, "dashboard.explore_trainers")}</Link>
             </Button>
           </CardContent>
         </Card>

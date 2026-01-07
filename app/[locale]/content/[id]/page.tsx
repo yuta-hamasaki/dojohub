@@ -5,6 +5,8 @@ import { useParams } from "next/navigation"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Eye, Video, FileText } from "lucide-react"
+import { Locale } from '@/lib/i18n/config'
+import { t } from '@/lib/i18n/translations'
 
 interface ContentItem {
   id: string
@@ -28,6 +30,7 @@ export default function ContentPage() {
   const [loading, setLoading] = useState(true)
   const params = useParams()
   const contentId = params.id as string
+  const locale = params.locale as Locale
 
   useEffect(() => {
     loadContent()
@@ -61,7 +64,7 @@ export default function ContentPage() {
   if (!content) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <p>Content not found or you don't have access</p>
+        <p>{t(locale, "content.no_content_found")}</p>
       </div>
     )
   }
@@ -80,7 +83,7 @@ export default function ContentPage() {
                     <FileText className="h-5 w-5 text-primary" />
                   )}
                   <Badge variant="secondary">{content.category}</Badge>
-                  {content.is_free && <Badge variant="outline">Free</Badge>}
+                  {content.is_free && <Badge variant="outline">{t(locale, "content.free_badge")}</Badge>}
                 </div>
                 <CardTitle className="text-3xl mb-2">{content.title}</CardTitle>
                 <p className="text-muted-foreground">By {content.trainer?.user?.full_name}</p>

@@ -93,13 +93,16 @@ export const translations = {
 
     // Dashboard (Client)
     "dashboard.title": "My Dashboard",
+    "dashboard.subtitle": "Manage your subscriptions and training",
     "dashboard.active_subscriptions": "Active Subscriptions",
     "dashboard.per_month": "/month",
     "dashboard.manage": "Manage",
     "dashboard.recent_content": "Recent Content from Your Trainers",
-    "dashboard.no_subscriptions": "No active subscriptions",
+    "dashboard.no_subscriptions": "No Active Subscriptions",
     "dashboard.no_subscriptions_desc": "Explore trainers to start learning",
+    "dashboard.subscription_sub": "Start your training journey by subscribing to a trainer",
     "dashboard.explore_trainers": "Explore Trainers",
+    "dashboard.view_content": "View Content",
 
     // Trainer Dashboard
     "trainer_dashboard.title": "Trainer Dashboard",
@@ -220,6 +223,14 @@ export const translations = {
     "common.edit": "Edit",
     "common.view": "View",
 
+    "common.months": "mo",
+    "common.year": "yr",
+
+    //content/[id]/page.tsx
+
+    "content.no_content_found": "Content not found or you don't have access",
+    "content.free_badge": "Free",
+
     //callback page
     "completing_signin": "Completing sign in...",
   },
@@ -316,14 +327,17 @@ export const translations = {
     "trainer.members_only": "メンバー限定",
 
     // Dashboard (Client)
-    "dashboard.title": "マイダッシュボード",
+    "dashboard.title": "ダッシュボード",
+    "dashboard.subtitle": "サブスクリプションとトレーニングを管理",
     "dashboard.active_subscriptions": "アクティブなサブスクリプション",
-    "dashboard.per_month": "/月",
     "dashboard.manage": "管理",
     "dashboard.recent_content": "トレーナーからの最近のコンテンツ",
     "dashboard.no_subscriptions": "アクティブなサブスクリプションなし",
     "dashboard.no_subscriptions_desc": "トレーナーを探して学習を始めましょう",
+    "dashboard.subscription_sub": "トレーナーを購読して、成長への一歩を踏み出そう",
     "dashboard.explore_trainers": "トレーナーを探す",
+    "dashboard.view_content": "コンテンツを見る",
+
 
     // Trainer Dashboard
     "trainer_dashboard.title": "トレーナーダッシュボード",
@@ -443,6 +457,9 @@ export const translations = {
     "common.delete": "削除",
     "common.edit": "編集",
     "common.view": "表示",
+
+    "common.months": "月",
+    "common.year": "年",
 
   //callback page
     "completing_signin": "ログイン処理中...",
